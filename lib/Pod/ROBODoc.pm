@@ -307,10 +307,12 @@ L<Carp>, L<IO::File>, L<IO::String>, L<Params::Validate>
 
 =head1 BUGS AND LIMITATIONS
 
-Please report any bugs or feature requests to C<bug-pod-robodoc@rt.cpan.org>,
+Please report any bugs or feature requests to C<bug-Pod-ROBODoc at rt dot cpan dot org>,
 or through the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Robodoc>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
+
+You may also use this module's github issues tracker at L<http://github.com/mgrimm/Pod-ROBODoc/issues>.
 
 There is currently no support for using filehandles as input and output streams.
 This is planned for a future release.
@@ -348,7 +350,7 @@ Pod::WikiDoc.
 
 =head1 AUTHOR
 
-Matt Grimm, C<mgrimm@cpan.org>
+Matt Grimm, C<mgrimm at cpan dot org>
 
 =head1 COPYRIGHT AND LICENSE
 
