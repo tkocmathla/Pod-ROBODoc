@@ -2,7 +2,7 @@ NAME
     Pod::ROBODoc - Convert ROBODoc to Pod.
 
 VERSION
-    0.1
+    0.3
 
 SYNOPSIS
         use Pod::ROBODoc;

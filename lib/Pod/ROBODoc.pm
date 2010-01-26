@@ -3,7 +3,7 @@ package Pod::ROBODoc;
 use strict;
 use warnings;
 
-our $VERSION = '0.1';
+our $VERSION = '0.3';
 
 use Carp;
 use IO::File;
@@ -225,7 +225,7 @@ Pod::ROBODoc - Convert ROBODoc to Pod.
 
 =head1 VERSION
 
-0.1
+0.3
 
 =head1 SYNOPSIS
 
