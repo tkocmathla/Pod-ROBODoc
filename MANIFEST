@@ -25,3 +25,5 @@ xt/manifest.t
 xt/perlcriticrc
 xt/pod-coverage.t
 xt/pod.t
+Makefile.PL
+LICENSE

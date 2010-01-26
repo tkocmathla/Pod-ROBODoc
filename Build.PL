@@ -20,6 +20,7 @@ my $builder = Module::Build->new(
     requires => {
         'Carp'             => 0,
         'IO::File'         => 0,
+        'IO::String'       => 0,
         'Getopt::Lucid'    => 0,
         'Params::Validate' => 0,
     },

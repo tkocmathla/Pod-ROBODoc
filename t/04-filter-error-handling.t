@@ -34,9 +34,7 @@ like( $err, qr{\AThe 'output' parameter \(".+"\) to Pod::ROBODoc::filter was a '
 #-------------------------------------------------------------------------------
 # Test invalid input param to filter()
 #-------------------------------------------------------------------------------
-chmod 0000, $infile->filename();
-
-eval { $pr->filter( input => $infile->filename() ) };
+eval { $pr->filter( input => 'nosuch.file', output => $outfile->filename() ) };
 $err = $@;
 
 like( $err, qr{\ACan't open input file},
@@ -46,15 +44,9 @@ like( $err, qr{\ACan't open input file},
 #-------------------------------------------------------------------------------
 # Test invalid output param to filter() 
 #-------------------------------------------------------------------------------
-chmod 0777, $infile->filename();
 chmod 0000, $outfile->filename();
 
-eval { 
-    $pr->filter( 
-        input  => $infile->filename(), 
-        output => $outfile->filename() 
-    ); 
-};
+eval { $pr->filter( input => $infile->filename(), output => $outfile->filename() ) };
 $err = $@;
 
 like( $err, qr{\ACan't open output file},

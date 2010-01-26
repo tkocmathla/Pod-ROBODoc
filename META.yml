@@ -8,7 +8,6 @@ build_requires:
   Test::Pod: 0
 configure_requires:
   Module::Build: 0.36
-dynamic_config: 0
 generated_by: 'Module::Build version 0.3601'
 license: perl
 meta-spec:
@@ -23,6 +22,7 @@ requires:
   Carp: 0
   Getopt::Lucid: 0
   IO::File: 0
+  IO::String: 0
   Params::Validate: 0
 resources:
   license: http://dev.perl.org/licenses/
