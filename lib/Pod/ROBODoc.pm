@@ -291,13 +291,13 @@ Pod, and writes it to the output stream.
 
 =item input
 
-The input stream containing ROBODoc documentation. If specified, this must be a
-file name. Defaults to STDIN.
+The input stream containing ROBODoc documentation. Can be a file name or file
+handle. Defaults to STDIN.
 
 =item output
 
-The output stream to which the Pod will be written. If specified, this must be a
-file name. Defaults to STDOUT.
+The output stream to which the Pod will be written. Can be a file name or file
+handle. Defaults to STDOUT.
 
 =back
 

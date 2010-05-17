@@ -38,7 +38,7 @@ eval { $pr->filter( input => 'nosuch.file', output => $outfile->filename() ) };
 $err = $@;
 
 like( $err, qr{\ACan't open input file},
-    'filter fails on non-writeable input file'
+    'filter fails on non-readable input file'
 );
 
 #-------------------------------------------------------------------------------
@@ -50,5 +50,5 @@ eval { $pr->filter( input => $infile->filename(), output => $outfile->filename()
 $err = $@;
 
 like( $err, qr{\ACan't open output file},
-    'filter fails on non-writeable output file'
+    'filter fails on non-writable output file'
 );
