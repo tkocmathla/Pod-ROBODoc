@@ -8,6 +8,7 @@ our $VERSION = '0.3';
 use Carp;
 use IO::File;
 use IO::String;
+use Scalar::Util qw( blessed );
 use Params::Validate qw( :all );
 
 my $EMPTY = q{};
@@ -69,30 +70,46 @@ sub filter
 {
     my $self   = shift;
     my %params = validate( @_, {
-        input  => { default => undef, type => UNDEF | SCALAR },
-        output => { default => undef, type => UNDEF | SCALAR },
+        input  => { default => undef, type => UNDEF | SCALAR | HANDLE },
+        output => { default => undef, type => UNDEF | SCALAR | HANDLE },
     });
 
     ## Setup input file handle
     my $in_fh;
 
-    if ( $params{input} ) {
+    if ( ! $params{input} ) {
+        $in_fh = \*STDIN;
+    }
+    elsif (( blessed $params{input} and $params{input}->isa( 'GLOB' ))
+        or ( ref $params{input}  eq 'GLOB' )
+        or ( ref \$params{input} eq 'GLOB' )) {
+        $in_fh = $params{input};
+    }
+    elsif ( ref \$params{input} eq 'SCALAR' ) {
         $in_fh = IO::File->new( $params{input}, '<' )
             or croak "Can't open input file '$params{input}': $!";
     }
     else {
-        $in_fh = \*STDIN;
+        croak "Unknown type of 'input' parameter";
     }
 
     ## Setup output file handle
     my $out_fh;
 
-    if ( $params{output} ) {
+    if ( ! $params{output} ) {
+        $out_fh = \*STDOUT;
+    }
+    elsif (( blessed $params{output} and $params{output}->isa( 'GLOB' ))
+        or ( ref $params{output}  eq 'GLOB' )
+        or ( ref \$params{output} eq 'GLOB' )) {
+        $out_fh = $params{output};
+    }
+    elsif ( ref \$params{output} eq 'SCALAR' ) {
         $out_fh = IO::File->new( $params{output}, '>' )
             or croak "Can't open output file '$params{output}': $!";
     }
     else {
-        $out_fh = \*STDOUT;
+        croak "Unknown type of 'output' parameter";
     }
 
     $self->_parse_robodoc( $in_fh  );
