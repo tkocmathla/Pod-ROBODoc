@@ -24,6 +24,7 @@ requires:
   IO::File: 0
   IO::String: 0
   Params::Validate: 0
+  Scalar::Util: 0
 resources:
   license: http://dev.perl.org/licenses/
   bugtracker: http://github.com/mgrimm/Pod-ROBODoc/issues

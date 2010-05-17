@@ -23,6 +23,7 @@ my $builder = Module::Build->new(
         'IO::String'       => 0,
         'Getopt::Lucid'    => 0,
         'Params::Validate' => 0,
+        'Scalar::Util'     => 0,
     },
 );
 
